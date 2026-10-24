@@ -1,0 +1,86 @@
+/* ==========================================================
+   CareerBridge – Global styles (M1: User Management & Auth)
+   ========================================================== */
+:root{
+  --ink:#12263A; --teal:#0E7C7B; --teal-d:#0A5F5E; --amber:#F4B942;
+  --mist:#F3F6F8; --line:#DDE5EA; --muted:#5C6F7E;
+  --bs-body-font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  --bs-body-color:#1D2B36; --bs-link-color:#0E7C7B; --bs-link-hover-color:#0A5F5E;
+}
+body{background:#fff}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--amber)!important;outline-offset:2px}
+.text-muted-cb{color:var(--muted)}
+
+/* Brand mark & buttons */
+.brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--ink);text-decoration:none}
+.brand span{color:var(--teal)}
+.btn-brand{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600;padding:.7rem 1.25rem;border-radius:.6rem}
+.btn-brand:hover,.btn-brand:focus{background:var(--teal-d);border-color:var(--teal-d);color:#fff}
+.btn-outline-ink{border:1.5px solid var(--ink);color:var(--ink);font-weight:600;border-radius:.6rem;padding:.7rem 1.25rem}
+.btn-outline-ink:hover{background:var(--ink);color:#fff}
+.btn-sm{padding:.45rem .9rem!important}
+
+/* Form controls */
+.form-label{font-weight:600;font-size:.9rem;color:var(--ink)}
+.form-control,.form-select{padding:.7rem .9rem;border-color:#C9D5DC;border-radius:.6rem}
+.form-control:focus,.form-select:focus{border-color:var(--teal);box-shadow:0 0 0 .2rem rgba(14,124,123,.15)}
+.input-group .btn-toggle{border:1px solid #C9D5DC;border-left:0;background:#fff;color:var(--muted);border-radius:0 .6rem .6rem 0;font-size:.85rem;font-weight:600}
+.input-group .form-control{border-radius:.6rem 0 0 .6rem}
+
+/* Role switch (segmented control) */
+.role-switch{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;background:var(--mist);padding:.35rem;border-radius:.8rem}
+.role-switch input{position:absolute;opacity:0}
+.role-switch label{text-align:center;padding:.65rem .5rem;border-radius:.6rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all .15s}
+.role-switch input:checked+label{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(18,38,58,.15)}
+.role-switch input:focus-visible+label{outline:3px solid var(--amber)}
+
+/* Password strength meter */
+.strength{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:.5rem}
+.strength-bar{height:100%;width:0;transition:width .25s,background .25s}
+.strength-text{font-size:.8rem;color:var(--muted);margin-top:.25rem;min-height:1.2rem}
+
+/* Auth split layout */
+.auth{min-height:100vh;display:grid;grid-template-columns:5fr 6fr}
+.auth-brand{background:var(--ink);color:#DCE7EE;padding:3rem;display:flex;flex-direction:column;justify-content:space-between}
+.auth-brand .brand{color:#fff}
+.auth-brand h2{color:#fff;font-size:2.1rem;line-height:1.2}
+.auth-form{display:flex;align-items:center;justify-content:center;padding:2.5rem 1.5rem}
+.auth-card{width:100%;max-width:460px}
+.auth-card h1{font-size:2rem}
+
+/* Hiring pipeline motif (mirrors the application statuses in US-13) */
+.pipeline{list-style:none;padding:0;margin:2rem 0 0;position:relative}
+.pipeline::before{content:"";position:absolute;left:9px;top:10px;bottom:10px;width:2px;background:rgba(255,255,255,.2)}
+.pipeline li{position:relative;padding:.5rem 0 .5rem 2.2rem;font-weight:500}
+.pipeline li::before{content:"";position:absolute;left:0;top:.7rem;width:20px;height:20px;border-radius:50%;background:var(--ink);border:2px solid rgba(255,255,255,.4)}
+.pipeline li.done::before{background:var(--teal);border-color:var(--teal)}
+.pipeline li.now::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 5px rgba(244,185,66,.25)}
+.pipeline li.now{color:#fff}
+
+/* Landing */
+.hero{background:var(--mist);padding:5rem 0}
+.hero h1{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.1}
+.panel{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.75rem;box-shadow:0 12px 32px rgba(18,38,58,.08)}
+.panel .pipeline{margin-top:1rem}
+.panel .pipeline::before{background:var(--line)}
+.panel .pipeline li{color:var(--muted)}
+.panel .pipeline li.now{color:var(--ink)}
+.panel .pipeline li::before{background:#fff;border-color:#B8C6CF}
+.panel .pipeline li.done::before{background:var(--teal);border-color:var(--teal)}
+.panel .pipeline li.now::before{background:var(--amber);border-color:var(--amber)}
+.feature{border-left:3px solid var(--teal);padding-left:1rem}
+
+/* Dashboard */
+.dash-card{border:1px solid var(--line);border-radius:1rem;padding:1.5rem;height:100%}
+.badge-role{background:rgba(14,124,123,.12);color:var(--teal-d);font-weight:600;padding:.4rem .7rem;border-radius:2rem}
+
+/* Reset-password steps */
+.step{display:none}.step.active{display:block}
+.code-input{letter-spacing:.6em;text-align:center;font-size:1.4rem;font-weight:700}
+
+@media (max-width:900px){.auth{grid-template-columns:1fr}.auth-brand{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Unread count shown next to Notifications / Messages in the top bar (M7) */
+.nav-badge{display:inline-block;min-width:1.25rem;margin-left:.35rem;padding:.1rem .4rem;border-radius:2rem;background:#D64545;color:#fff;font-size:.7rem;font-weight:700;line-height:1.2;text-align:center}
